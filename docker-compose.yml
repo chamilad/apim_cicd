@@ -1,0 +1,33 @@
+version: '2.3'
+services:
+  api-manager1:
+    image: docker.wso2.com/wso2am:2.6.0.1
+    healthcheck:
+      test: ["CMD", "curl", "-k", "-f", "https://localhost:9443/carbon/admin/login.jsp"]
+      interval: 10s
+      timeout: 120s
+      start_period: 100s
+      retries: 10
+    ports:
+      - "9763:9763"
+      - "9443:9443"
+      - "8280:8280"
+      - "8243:8243"
+    network_mode: bridge
+  api-manager2:
+    image: docker.wso2.com/wso2am:2.6.0.1
+    healthcheck:
+      test: ["CMD", "curl", "-k", "-f", "https://localhost:9443/carbon/admin/login.jsp"]
+      interval: 10s
+      timeout: 120s
+      start_period: 100s
+      retries: 10
+    depends_on:
+      api-manager1:
+        condition: service_healthy
+    ports:
+      - "9863:9763"
+      - "9543:9443"
+      - "8380:8280"
+      - "8343:8243"
+    network_mode: bridge

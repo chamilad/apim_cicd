@@ -6,13 +6,13 @@ if [[ -z "$VIRTUAL_ENV" ]]; then
 fi
 
 echo "Setting environment variables to point to the localhost..."
-export WSO2_APIM_ENV1_APIMGT_URL="https://172.17.0.2:9443"
-export WSO2_APIM_ENV1_GW_URL="https://172.17.0.2:8243"
+export WSO2_APIM_ENV1_APIMGT_URL="https://172.17.0.1:9443"
+export WSO2_APIM_ENV1_GW_URL="https://172.17.0.1:8243"
 export WSO2_APIM_ENV1_APIMGT_USERNAME="admin"
 export WSO2_APIM_ENV1_APIMGT_PASSWD="admin"
 
-export WSO2_APIM_ENV2_APIMGT_URL="https://172.17.0.2:9443"
-export WSO2_APIM_ENV2_GW_URL="https://172.17.0.2:8243"
+export WSO2_APIM_ENV2_APIMGT_URL="https://172.17.0.1:9443"
+export WSO2_APIM_ENV2_GW_URL="https://172.17.0.1:8243"
 export WSO2_APIM_ENV2_APIMGT_USERNAME="admin"
 export WSO2_APIM_ENV2_APIMGT_PASSWD="admin"
 
