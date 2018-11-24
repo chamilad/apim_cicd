@@ -1,0 +1,12 @@
+{
+  "username": "user3",
+  "department": "department3",
+  "apis": [
+    {
+      "name": "CheeseAPI_dev1",
+      "description": "API for all things Cheese",
+      "context": "/api/dev1/cheese",
+      "version": "v1"
+    }
+  ]
+}

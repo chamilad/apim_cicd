@@ -1,0 +1,12 @@
+{
+  "username": "user2",
+  "department": "department2",
+  "apis": [
+    {
+      "name": "DroneAPI_dev1",
+      "description": "API for Drones",
+      "context": "/api/dev1/drone",
+      "version": "v1"
+    }
+  ]
+}

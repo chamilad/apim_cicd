@@ -1,0 +1,62 @@
+{
+  "name": "placeholder",
+  "description": "placeholder",
+  "context": "/placeholder",
+  "version": "placeholder",
+  "provider": "placeholder",
+  "apiDefinition": "{\r\n  \"paths\": {\r\n    \"\/*\": {\r\n      \"get\": {\r\n        \"x-auth-type\": \"Application\",\r\n        \"x-throttling-tier\": \"Unlimited\",\r\n        \"responses\": {\r\n          \"200\": {\r\n            \"description\": \"OK\"\r\n          }\r\n        }\r\n      }\r\n    }\r\n  },\r\n  \"x-wso2-security\": {\r\n    \"apim\": {\r\n      \"x-wso2-scopes\": []\r\n    }\r\n  },\r\n  \"swagger\": \"2.0\",\r\n  \"info\": {\r\n    \"title\": \"Sample\",\r\n    \"description\": \"Verify a phone number\",\r\n    \"contact\": {\r\n      \"email\": \"xx@ee.com\",\r\n      \"name\": \"xx\"\r\n    },\r\n    \"version\": \"1.0.0\"\r\n  }\r\n}",
+  "wsdlUri": null,
+  "status": "CREATED",
+  "responseCaching": "Disabled",
+  "cacheTimeout": 300,
+  "destinationStatsEnabled": null,
+  "isDefaultVersion": false,
+  "type": "HTTP",
+  "transport": [
+    "http",
+    "https"
+  ],
+  "tags": [],
+  "tiers": [
+    "Unlimited"
+  ],
+  "maxTps": {
+    "sandbox": 5000,
+    "production": 1000
+  },
+  "thumbnailUri": null,
+  "visibility": "PUBLIC",
+  "visibleRoles": [],
+  "visibleTenants": [],
+  "endpointConfig": "{\"production_endpoints\":{\"url\":\"prod_be_url_placeholder\",\"config\":null},\"sandbox_endpoints\":{\"url\":\"sandbox_be_url_placeholder\",\"config\":null},\"endpoint_type\":\"http\"}",
+  "gatewayEnvironments": "Production and Sandbox",
+  "subscriptionAvailability": null,
+  "subscriptionAvailableTenants": [],
+  "businessInformation": {
+    "businessOwnerEmail": "placeholder",
+    "technicalOwnerEmail": "placeholder",
+    "technicalOwner": "placeholder",
+    "businessOwner": "placeholder"
+  },
+  "corsConfiguration": {
+    "accessControlAllowOrigins": [
+      "*"
+    ],
+    "accessControlAllowHeaders": [
+      "authorization",
+      "Access-Control-Allow-Origin",
+      "Content-Type",
+      "SOAPAction"
+    ],
+    "accessControlAllowMethods": [
+      "GET",
+      "PUT",
+      "POST",
+      "DELETE",
+      "PATCH",
+      "OPTIONS"
+    ],
+    "accessControlAllowCredentials": false,
+    "corsConfigurationEnabled": false
+  }
+}

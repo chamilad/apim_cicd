@@ -1,0 +1,18 @@
+{
+  "username": "user1",
+  "department": "department1",
+  "apis": [
+    {
+      "name": "CoffeeAPI_dev1",
+      "description": "API for all things Coffee",
+      "context": "/api/dev1/coffee",
+      "version": "v1"
+    },
+    {
+      "name": "SteakAPI_dev1",
+      "description": "API for all things meat",
+      "context": "/api/dev1/steak",
+      "version": "v1"
+    }
+  ]
+}
