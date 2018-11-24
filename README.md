@@ -152,7 +152,11 @@ To start this deployment, run [`start_test_containers.sh`](start_test_containers
 
 > The Containers are networked as bridged to the default Docker bridge on the Host, and therefore will share IP addresses from the range `172.17.0.1/16`
 
+![Starting Docker Containers](img/start_containers.png)
+
 Once the testing is done, the deployment can be torn down with the script [`stop_test_containers.sh`](stop_test_containers.sh).
+
+![Stopping Containers](img/stop_containers.png)
 
 ### Running the Tests
 To run the Python scripts by setting the required environment variables, the `test_local_*.sh` scripts can be used. 
@@ -160,3 +164,16 @@ To run the Python scripts by setting the required environment variables, the `te
 2. [`test_local_propagate.sh`](test_local_propagate.sh) - This script runs the [`api_propagate.py`](api_propagate.py) script, pointed to two API Manager deployments on localhost, the second one with an offset of `100`, i.e. `172.17.0.1:9443` and `172.17.0.1:9543`
 3. [`test_local_propagate_same_instance.sh`](test_local_propagate_same_instance.sh) - This does the same as #2 above, but with both environments pointing to the same API Manager deployment. 
 
+Simply start the Docker Containers as [mentioned above](#setup), and execute scripts [`test_local_create.sh`](test_local_create.sh), [`test_local_propagate.sh`](test_local_propagate.sh), and [`test_local_propagate_same_instance.sh`](test_local_propagate_same_instance.sh) in that order. You can visit the pages [ENV1 Publisher](https://localhost:9443/publisher) and [ENV2 Publisher](https://localhost:9543/publisher) to see the APIs getting created as the scripts are executed.
+
+##### Creating the APIs
+![Create APIs](img/test_local_create.png)
+![ENV1 Publisher](img/test_local_create_result.png)
+
+##### Propagating APIs between different environments
+![Propagate APIs](img/test_local_propagate.png)
+![ENV2 Publisher](img/test_local_propagate_result.png)
+
+##### Propagating APIs in the same environment 
+![Propagate APIs in Same Instance](img/test_local_propagate_same_instance.png)
+![ENV1 Publisher](img/test_local_propagate_same_instance_result.png)
