@@ -108,6 +108,8 @@ To setup the environment with the dependencies, use [`setup.sh`](setup.sh) scrip
 
 If you already have setup an environment (e.g. an existing virtual environment), load the environment and check if the dependencies are met with the script [`check_requirements.sh`](check_requirements.sh).
 
+> If you are setting up a virtual environment manually, better name it `venv` as the helper scripts for testing work with that name.
+
 ### Configuration
 The Python scripts take the required parameters as environment variables. Therefore, any automation tool that executes these scripts should inject the environment variables with the proper values during execution. For an example, Jenkins can make use of [EnvInject](https://plugins.jenkins.io/envinject) plugin to load environment variabels from a pre-populated properties file for a build job.
 
@@ -127,10 +129,12 @@ The environment variables required for each script are as follows.
 * ENV1 Gateway URL - `WSO2_APIM_ENV1_GW_URL`
 * ENV1 API Manager Username - `WSO2_APIM_ENV1_APIMGT_USERNAME`
 * ENV1 API Manager Password - `WSO2_APIM_ENV1_APIMGT_PASSWD`
+* ENV1 Identifier - `WSO2_APIM_ENV1_ID`
 * ENV2 API Manager URL - `WSO2_APIM_ENV2_APIMGT_URL`
 * ENV2 Gateway URL - `WSO2_APIM_ENV2_GW_URL`
 * ENV2 API Manager Username - `WSO2_APIM_ENV2_APIMGT_USERNAME`
 * ENV2 API Manager Password - `WSO2_APIM_ENV2_APIMGT_PASSWD`
+* ENV2 Identifier - `WSO2_APIM_ENV2_ID`
 * Verify SSL flag - `WSO2_APIM_VERIFY_SSL`
 
 ### API Create Request Definitions

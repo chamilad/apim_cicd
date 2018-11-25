@@ -24,6 +24,8 @@ env1_gw_url = os.getenv("WSO2_APIM_ENV1_GW_URL", None)
 env1_apimgt_username = os.getenv("WSO2_APIM_ENV1_APIMGT_USERNAME", None)
 # env var: WSO2_APIM_ENV1_APIMGT_PASSWD
 env1_apimgt_pwd = os.getenv("WSO2_APIM_ENV1_APIMGT_PASSWD", None)
+# env var: WSO2_APIM_ENV1_ID
+env1_identifier = os.getenv("WSO2_APIM_ENV1_ID", None)
 
 # URLs and credentials of the API Manager deployment ENV2
 # env var: WSO2_APIM_ENV2_APIMGT_URL
@@ -34,6 +36,8 @@ env2_gw_url = os.getenv("WSO2_APIM_ENV2_GW_URL", None)
 env2_apimgt_username = os.getenv("WSO2_APIM_ENV2_APIMGT_USERNAME", None)
 # env var: WSO2_APIM_ENV2_APIMGT_PASSWD
 env2_apimgt_pwd = os.getenv("WSO2_APIM_ENV2_APIMGT_PASSWD", None)
+# env var: WSO2_APIM_ENV2_ID
+env2_identifier = os.getenv("WSO2_APIM_ENV2_ID", None)
 
 # ignore TLS errors
 # env var: WSO2_APIM_VERIFY_SSL
@@ -60,6 +64,10 @@ if env1_apimgt_pwd is None:
     print "[ERROR] ENV1 API Manager Password is empty. Please set environment variable WSO2_APIM_ENV1_APIMGT_PASSWD"
     exit(2)
 
+if env1_identifier is None:
+    print "[ERROR] ENV1 Identifier is empty. Please set environment variable WSO2_APIM_ENV1_ID"
+    exit(2)
+
 if env2_apimgt_url is None:
     print "[ERROR] ENV2 API Manager URL is empty. Please set environment variable WSO2_APIM_ENV2_APIMGT_URL"
     exit(2)
@@ -74,6 +82,10 @@ if env2_apimgt_username is None:
 
 if env2_apimgt_pwd is None:
     print "[ERROR] ENV2 API Manager Password is empty. Please set environment variable WSO2_APIM_ENV2_APIMGT_PASSWD"
+    exit(2)
+
+if env2_identifier is None:
+    print "[ERROR] ENV2 Identifier is empty. Please set environment variable WSO2_APIM_ENV2_ID"
     exit(2)
 
 if verify_ssl is None:
@@ -128,18 +140,21 @@ if __name__ == '__main__':
 
         # Example 1: Replace the backend URL from dev1 to dev2
         ep_config = json.loads(api_definition_env1["endpointConfig"])
-        ep_config["production_endpoints"]["url"] = ep_config["production_endpoints"]["url"].replace("dev1", "dev2")
-        ep_config["sandbox_endpoints"]["url"] = ep_config["sandbox_endpoints"]["url"].replace("dev1", "dev2")
+        ep_config["production_endpoints"]["url"] = ep_config["production_endpoints"]["url"].replace(env1_identifier,
+                                                                                                    env2_identifier)
+        ep_config["sandbox_endpoints"]["url"] = ep_config["sandbox_endpoints"]["url"].replace(env1_identifier,
+                                                                                              env2_identifier)
         api_definition_env1["endpointConfig"] = json.dumps(ep_config)
 
         # Example 2: Rename the API context to suite environment name
-        api_definition_env1["context"] = api_definition_env1["context"].replace("dev1", "dev2")
+        api_definition_env1["context"] = api_definition_env1["context"].replace(env1_identifier, env2_identifier)
 
         # Example 3: Rename the API name to suite environment name
-        api_definition_env1["name"] = api_definition_env1["name"].replace("dev1", "dev2")
+        api_definition_env1["name"] = api_definition_env1["name"].replace(env1_identifier, env2_identifier)
 
         # check if API exists in env2
-        api_exists_in_env2, api_id = api_utils.api_version_exists(api_definition_env1["name"], api_definition_env1["version"],
+        api_exists_in_env2, api_id = api_utils.api_version_exists(api_definition_env1["name"],
+                                                                  api_definition_env1["version"],
                                                                   env2_apimgt_url, env2_access_token, verify_ssl)
 
         if api_exists_in_env2:
