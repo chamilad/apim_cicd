@@ -1,6 +1,25 @@
 # API CI/CD with WSO2 API Manager
 
-This set of scripts is a proof of concept on how to do API CI/CD with WSO2 API Manager using the WSO2 API Manager Publisher REST API. 
+This set of scripts is a proof of concept on [how to do API CI/CD with WSO2 API Manager using the WSO2 API Manager Publisher REST API](https://medium.com/@chamilad/ci-cd-apis-with-wso2-api-manager-93d0f7688078). 
+
+1. [User Stories](#user-stories)
+    1. [Context](#context)
+    2. [API Creation](#api-creation)
+    3. [API Propagation](#api-propagation-between-environments)
+    4. [Assumptions](#assumptions)
+2. [Implementation](#implementation)
+    1. [Prerequisites](#prerequisites)
+    2. [Configuration](#configuration)
+    3. [API Create Request Definition](#api-create-request-definitions)
+    4. [API Create vs Update](#api-creation-vs-update)
+    5. [Import/Export vs Publisher APIs](#importexport-vs-publisher-apis)
+3. [Testing](#testing)
+    1. [Setup](#setup)
+    2. [Running the tests](#running-the-tests)
+        1. [Creating the APIs](#creating-the-apis)
+        2. [Propagating APIs between different environments](#propagating-apis-between-different-environments)
+        3. [Propagating APIs in the same environment](#propagating-apis-in-the-same-environment)
+
 
 ## User Stories
 ![User Stories](img/user_stories.jpg)
