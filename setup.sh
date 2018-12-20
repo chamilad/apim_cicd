@@ -1,32 +1,34 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-command -v python >/dev/null 2>&1 || {
+set -e
+
+command -v python2 >/dev/null 2>&1 || {
     echo >&2 "Please install Python 2.7 and add it \$PATH."
     exit 1
 }
 
-py_version=$(python --version 2>&1 | awk '{print $2}')
+py_version=$(python2 --version 2>&1 | awk '{print $2}')
 if [[ $py_version != 2.7* ]]; then
     print_crossmark
     echo >&2 "Python required version \"2.7.x\" doesn't match found version \"${py_version}\"."
     exit 1
 fi
 
-command -v pip >/dev/null 2>&1 || {
+command -v pip2 >/dev/null 2>&1 || {
     echo >&2 "Please install Python Pip 2.7 and add it to \$PATH."
     exit 1
 }
 
 if [ ! -d venv ]; then
     echo "Creating virtual environment..."
-    pip install virtualenv
+    pip2 install --user virtualenv
     virtualenv -p $(which python2.7) venv
     echo
 fi
 
 echo "Installing dependencies..."
 source venv/bin/activate
-pip install -r requirements.txt
+pip2 install -r requirements.txt
 echo
 
 echo "done"

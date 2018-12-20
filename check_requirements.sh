@@ -18,13 +18,13 @@ echo "Checking prerequisites..."
 echo
 
 echo -n "Python 2.7: "
-command -v python >/dev/null 2>&1 || {
+command -v python2 >/dev/null 2>&1 || {
     print_crossmark
     echo >&2 "Python cannot be found. Aborting..."
     exit 1
 }
 
-py_version=$(python --version 2>&1 | awk '{print $2}')
+py_version=$(python2 --version 2>&1 | awk '{print $2}')
 if [[ $py_version != 2.7* ]]; then
     print_crossmark
     echo >&2 "Python version is not 2.7. Aborting..."
@@ -42,14 +42,14 @@ fi
 print_checkmark
 
 echo -n "Python Libs: "
-pip freeze | grep requests > /dev/null 2>&1
+pip2 freeze | grep requests > /dev/null 2>&1
 if [ $? == 1 ]; then
     print_crossmark
     echo >&2 "One or more Python libraries are missing. Please install packages from requirements.txt or run setup.sh"
     exit 1
 fi
 
-pip freeze | grep urllib3 > /dev/null 2>&1
+pip2 freeze | grep urllib3 > /dev/null 2>&1
 if [ $? == 1 ]; then
     print_crossmark
     echo >&2 "One or more Python libraries are missing. Please install packages from requirements.txt or run setup.sh"

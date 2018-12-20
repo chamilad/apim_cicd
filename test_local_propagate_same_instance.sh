@@ -23,4 +23,4 @@ export WSO2_APIM_VERIFY_SSL="False"
 export WSO2_APIM_VERBOSE="False"
 
 echo "Running Python script..."
-python api_propagate.py
+python2 api_propagate.py

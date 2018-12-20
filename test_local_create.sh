@@ -21,4 +21,4 @@ export WSO2_APIM_API_STATUS="CREATED"
 export WSO2_APIM_VERBOSE="False"
 
 echo "Running Python script..."
-python api_create.py
+python2 api_create.py
