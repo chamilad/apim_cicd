@@ -41,6 +41,9 @@ backend_url_sandbox = os.getenv("WSO2_APIM_BE_SNDBX", None)
 # env var: WSO2_APIM_API_STATUS
 api_status = os.getenv("WSO2_APIM_API_STATUS", "CREATED")
 
+# Owner to be specified in the DCR
+api_owner = os.getenv("WSO2_APIM_APIMGT_OWNER", None)
+
 #
 # 2. Sanitize input
 #
@@ -83,10 +86,14 @@ if api_status not in ["CREATED", "PROTOTYPED", "PUBLISHED", "BLOCKED", "DEPRECAT
           "found in https://docs.wso2.com/display/AM260/Key+Concepts#KeyConcepts-APIlifecycle"
     exit(2)
 
+if api_owner is None:
+    print "[ERROR] API Owner is empty. Please set environment variable WSO2_APIM_APIMGT_OWNER"
+    exit(2)
+
 # Run the following for the Python script execution
 if __name__ == '__main__':
     print "Obtaining access token..."
-    access_token = api_utils.get_access_token(apimgt_url, gw_url, apimgt_username, apimgt_pwd, verify_ssl)
+    access_token = api_utils.get_access_token(apimgt_url, gw_url, apimgt_username, apimgt_pwd, api_owner, verify_ssl)
 
     if access_token is None:
         print "[ERROR] Error when obtaining access token. Aborting..."

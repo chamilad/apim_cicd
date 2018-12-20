@@ -115,7 +115,7 @@ The script executed in this step, [`api_propagate.py`](api_propagate.py), will p
 
 ### Assumptions
 In codifying the stories, the scripts have made the following assumptions for the ease of implementation. Scenarios that fall out of the following criteria can also use these scripts, provided certain changes are introduced. 
-1. Backend URLs - The baackend URLs of the APIs are basically uniform and fall within a pattern that makes it easy to change backend URLs when APIs are promoted between environments. 
+1. Backend URLs - The backend URLs of the APIs are basically uniform and fall within a pattern that makes it easy to change backend URLs when APIs are promoted between environments. 
 2. Emails are not used as usernames for WSO2 API Manager. If this is used, configuration changes in the WSO2 API Manager should be done in order to allow proper use of the feature.
 3. APIs versioning feature is not used. [`api_propagate.py`](api_propagate.py) script does not take into account the existence of different versions of the same API. Therefore, no API Version Creation requests are made. If this feature is used, the script has to modified so that it takes into account this possibility.
 

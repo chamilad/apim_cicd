@@ -26,6 +26,8 @@ env1_apimgt_username = os.getenv("WSO2_APIM_ENV1_APIMGT_USERNAME", None)
 env1_apimgt_pwd = os.getenv("WSO2_APIM_ENV1_APIMGT_PASSWD", None)
 # env var: WSO2_APIM_ENV1_ID
 env1_identifier = os.getenv("WSO2_APIM_ENV1_ID", None)
+# Owner to be specified in the DCR
+env1_api_owner = os.getenv("WSO2_APIM_ENV1_APIMGT_OWNER", None)
 
 # URLs and credentials of the API Manager deployment ENV2
 # env var: WSO2_APIM_ENV2_APIMGT_URL
@@ -38,6 +40,9 @@ env2_apimgt_username = os.getenv("WSO2_APIM_ENV2_APIMGT_USERNAME", None)
 env2_apimgt_pwd = os.getenv("WSO2_APIM_ENV2_APIMGT_PASSWD", None)
 # env var: WSO2_APIM_ENV2_ID
 env2_identifier = os.getenv("WSO2_APIM_ENV2_ID", None)
+
+# Owner to be specified in the DCR
+env2_api_owner = os.getenv("WSO2_APIM_ENV2_APIMGT_OWNER", None)
 
 # ignore TLS errors
 # env var: WSO2_APIM_VERIFY_SSL
@@ -68,6 +73,10 @@ if env1_identifier is None:
     print "[ERROR] ENV1 Identifier is empty. Please set environment variable WSO2_APIM_ENV1_ID"
     exit(2)
 
+if env1_api_owner is None:
+    print "[ERROR] ENV1 API Owner is empty. Please set environment variable WSO2_APIM_ENV1_APIMGT_OWNER"
+    exit(2)
+
 if env2_apimgt_url is None:
     print "[ERROR] ENV2 API Manager URL is empty. Please set environment variable WSO2_APIM_ENV2_APIMGT_URL"
     exit(2)
@@ -88,6 +97,10 @@ if env2_identifier is None:
     print "[ERROR] ENV2 Identifier is empty. Please set environment variable WSO2_APIM_ENV2_ID"
     exit(2)
 
+if env2_api_owner is None:
+    print "[ERROR] ENV2 API Owner is empty. Please set environment variable WSO2_APIM_ENV2_APIMGT_OWNER"
+    exit(2)
+
 if verify_ssl is None:
     print "[ERROR] Verify_SSL flag is empty. Please set environment variable WSO2_APIM_VERIFY_SSL"
     exit(2)
@@ -96,7 +109,7 @@ if verify_ssl is None:
 if __name__ == '__main__':
     print "Obtaining access token for ENV1..."
     env1_access_token = api_utils.get_access_token(env1_apimgt_url, env1_gw_url, env1_apimgt_username, env1_apimgt_pwd,
-                                                   verify_ssl)
+                                                   env1_api_owner, verify_ssl)
     if env1_access_token is None:
         print "[ERROR] Error when obtaining access token from ENV1. Aborting..."
         exit(1)
@@ -116,7 +129,7 @@ if __name__ == '__main__':
     # 2. Iterate through APIs and check if exists in env2
     print "Obtaining access token for ENV2..."
     env2_access_token = api_utils.get_access_token(env2_apimgt_url, env2_gw_url, env2_apimgt_username, env2_apimgt_pwd,
-                                                   verify_ssl)
+                                                   env2_api_owner, verify_ssl)
     if env2_access_token is None:
         print "[ERROR] Error when obtaining access token from ENV2. Aborting..."
         exit(1)

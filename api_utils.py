@@ -149,7 +149,7 @@ def do_get(url, req_params=None, req_headers=None, verify_ssl=True):
         return False, None, "Timeout: " + e.message
 
 
-def get_access_token(apimgt_url, gw_url, username, password, verify_ssl=True):
+def get_access_token(apimgt_url, gw_url, username, password, owner, verify_ssl=True):
     """
     Do Dynamic Client registration and obtain an access token to be used for Publisher API calls
     :return:
@@ -158,7 +158,7 @@ def get_access_token(apimgt_url, gw_url, username, password, verify_ssl=True):
         'callbackUrl': 'www.google.lk',
         'clientName': 'rest_api_publisher',
         'tokenScope': 'Production',
-        'owner': 'admin',
+        'owner': owner,
         'grantType': 'password refresh_token',
         'saasApp': 'true'
     }

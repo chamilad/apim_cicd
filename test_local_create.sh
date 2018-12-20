@@ -10,6 +10,7 @@ export WSO2_APIM_APIMGT_URL="https://172.17.0.1:9443"
 export WSO2_APIM_GW_URL="https://172.17.0.1:8243"
 export WSO2_APIM_APIMGT_USERNAME="admin"
 export WSO2_APIM_APIMGT_PASSWD="admin"
+export WSO2_APIM_APIMGT_OWNER="admin"
 
 export WSO2_APIM_VERIFY_SSL="False"
 
