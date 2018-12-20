@@ -1,7 +1,7 @@
-import json
 import os
 
 import api_utils
+import extensions
 
 #
 # Exit codes
@@ -24,8 +24,6 @@ env1_gw_url = os.getenv("WSO2_APIM_ENV1_GW_URL", None)
 env1_apimgt_username = os.getenv("WSO2_APIM_ENV1_APIMGT_USERNAME", None)
 # env var: WSO2_APIM_ENV1_APIMGT_PASSWD
 env1_apimgt_pwd = os.getenv("WSO2_APIM_ENV1_APIMGT_PASSWD", None)
-# env var: WSO2_APIM_ENV1_ID
-env1_identifier = os.getenv("WSO2_APIM_ENV1_ID", None)
 # Owner to be specified in the DCR
 env1_api_owner = os.getenv("WSO2_APIM_ENV1_APIMGT_OWNER", None)
 
@@ -38,8 +36,6 @@ env2_gw_url = os.getenv("WSO2_APIM_ENV2_GW_URL", None)
 env2_apimgt_username = os.getenv("WSO2_APIM_ENV2_APIMGT_USERNAME", None)
 # env var: WSO2_APIM_ENV2_APIMGT_PASSWD
 env2_apimgt_pwd = os.getenv("WSO2_APIM_ENV2_APIMGT_PASSWD", None)
-# env var: WSO2_APIM_ENV2_ID
-env2_identifier = os.getenv("WSO2_APIM_ENV2_ID", None)
 
 # Owner to be specified in the DCR
 env2_api_owner = os.getenv("WSO2_APIM_ENV2_APIMGT_OWNER", None)
@@ -69,10 +65,6 @@ if env1_apimgt_pwd is None:
     print "[ERROR] ENV1 API Manager Password is empty. Please set environment variable WSO2_APIM_ENV1_APIMGT_PASSWD"
     exit(2)
 
-if env1_identifier is None:
-    print "[ERROR] ENV1 Identifier is empty. Please set environment variable WSO2_APIM_ENV1_ID"
-    exit(2)
-
 if env1_api_owner is None:
     print "[ERROR] ENV1 API Owner is empty. Please set environment variable WSO2_APIM_ENV1_APIMGT_OWNER"
     exit(2)
@@ -91,10 +83,6 @@ if env2_apimgt_username is None:
 
 if env2_apimgt_pwd is None:
     print "[ERROR] ENV2 API Manager Password is empty. Please set environment variable WSO2_APIM_ENV2_APIMGT_PASSWD"
-    exit(2)
-
-if env2_identifier is None:
-    print "[ERROR] ENV2 Identifier is empty. Please set environment variable WSO2_APIM_ENV2_ID"
     exit(2)
 
 if env2_api_owner is None:
@@ -126,6 +114,9 @@ if __name__ == '__main__':
         print "No APIs were found in env1. Exiting..."
         exit(0)
 
+    # Filter out only the APIs needed to be propagated.
+    filtered_apis = extensions.propagate_filter_from_env1(all_apis_in_env1)
+
     # 2. Iterate through APIs and check if exists in env2
     print "Obtaining access token for ENV2..."
     env2_access_token = api_utils.get_access_token(env2_apimgt_url, env2_gw_url, env2_apimgt_username, env2_apimgt_pwd,
@@ -135,7 +126,7 @@ if __name__ == '__main__':
         exit(1)
 
     print "Checking for API status in ENV2..."
-    for api_to_propagate in all_apis_in_env1["list"]:
+    for api_to_propagate in filtered_apis["list"]:
         # get the api definition from env 1
         api_definition_env1 = api_utils.get_api_by_id(api_to_propagate["id"], env1_apimgt_url, env1_access_token,
                                                       verify_ssl)
@@ -150,20 +141,7 @@ if __name__ == '__main__':
 
         # Any changes to the api definition that should be there in the new environment should be done here
         # before the create/update call is done. Refer the following examples.
-
-        # Example 1: Replace the backend URL from dev1 to dev2
-        ep_config = json.loads(api_definition_env1["endpointConfig"])
-        ep_config["production_endpoints"]["url"] = ep_config["production_endpoints"]["url"].replace(env1_identifier,
-                                                                                                    env2_identifier)
-        ep_config["sandbox_endpoints"]["url"] = ep_config["sandbox_endpoints"]["url"].replace(env1_identifier,
-                                                                                              env2_identifier)
-        api_definition_env1["endpointConfig"] = json.dumps(ep_config)
-
-        # Example 2: Rename the API context to suite environment name
-        api_definition_env1["context"] = api_definition_env1["context"].replace(env1_identifier, env2_identifier)
-
-        # Example 3: Rename the API name to suite environment name
-        api_definition_env1["name"] = api_definition_env1["name"].replace(env1_identifier, env2_identifier)
+        api_definition_env1 = extensions.propagate_change_apidef(api_definition_env1)
 
         # check if API exists in env2
         api_exists_in_env2, api_id = api_utils.api_version_exists(api_definition_env1["name"],
@@ -175,7 +153,7 @@ if __name__ == '__main__':
 
             # check the kind of api_id received.. should be a UUID
             if "-" not in api_id:
-                print "Abnormal state found where more than one (%s) api-version was found for [api-name] %s " \
+                print "Abnormal state found where more than one [%s] api-version was found for [api-name] %s " \
                       "[api-version] %s. Skipping this one..." % (
                           api_id, api_definition_env1["name"], api_definition_env1["version"])
 
