@@ -104,7 +104,9 @@ if __name__ == '__main__':
 
     # 1. Get list of APIs from env1
     print "Getting the list of APIs from ENV1..."
-    all_apis_in_env1 = api_utils.get_all_apis(env1_apimgt_url, env1_access_token, verify_ssl)
+    env1_custom_filter = extensions.propagate_filter_api_env1_by()
+    all_apis_in_env1 = api_utils.get_all_apis(env1_apimgt_url, env1_access_token, verify_ssl=verify_ssl,
+                                              query_params=env1_custom_filter)
 
     if all_apis_in_env1 is None:
         print "Error while retrieving API details from env1. Aborting..."
@@ -113,9 +115,6 @@ if __name__ == '__main__':
     if all_apis_in_env1["count"] == 0:
         print "No APIs were found in env1. Exiting..."
         exit(0)
-
-    # Filter out only the APIs needed to be propagated.
-    filtered_apis = extensions.propagate_filter_from_env1(all_apis_in_env1)
 
     # 2. Iterate through APIs and check if exists in env2
     print "Obtaining access token for ENV2..."
@@ -126,7 +125,7 @@ if __name__ == '__main__':
         exit(1)
 
     print "Checking for API status in ENV2..."
-    for api_to_propagate in filtered_apis["list"]:
+    for api_to_propagate in all_apis_in_env1["list"]:
         # get the api definition from env 1
         api_definition_env1 = api_utils.get_api_by_id(api_to_propagate["id"], env1_apimgt_url, env1_access_token,
                                                       verify_ssl)

@@ -7,14 +7,17 @@ env1_identifier = os.getenv("WSO2_APIM_ENV1_ID", None)
 env2_identifier = os.getenv("WSO2_APIM_ENV2_ID", None)
 
 
-def propagate_filter_from_env1(unfiltered_apis):
+def propagate_filter_api_env1_by():
     """
     Filter out APIs to be processed for propagation
-    :param unfiltered_apis:
-    :return: filtered apis
+    :return: query filter to retrieve apis from ENV1
     """
 
-    return unfiltered_apis
+    filter_query_params = {
+        "query": "context:*/" + env1_identifier + "/*"
+    }
+
+    return filter_query_params
 
 
 def propagate_change_apidef(api_definition):
