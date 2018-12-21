@@ -1,6 +1,20 @@
 import json
 import os
 
+"""
+extensions.py
+
+The purpose of this Python script is to offer extensibility to the CI/CD functions
+being done by the api_create.py and api_propagate.py scripts. The extension points 
+can be several points in the process. At each point, the scripts can call the methods
+in the extensions.py. The changes needed can be done in this script can be done 
+without interfering with the core logic and without the fear of breaking the logic. 
+
+It should be noted that incorrect values returned by the following implementations
+could actually break the core logic. Therefore, carefully study the sample 
+implementations before modifying the behavior. 
+"""
+
 # env var: WSO2_APIM_ENV1_ID
 env1_identifier = os.getenv("WSO2_APIM_ENV1_ID", None)
 # env var: WSO2_APIM_ENV2_ID
@@ -10,6 +24,12 @@ env2_identifier = os.getenv("WSO2_APIM_ENV2_ID", None)
 def propagate_filter_api_env1_by():
     """
     Filter out APIs to be processed for propagation
+
+    For an example, the following default implementation filters
+    the APIs by the presence of /devX/ in the API context, X being
+    the environment number. Any more filtering can also be done
+    by modifying this method.
+
     :return: query filter to retrieve apis from ENV1
     """
 
@@ -22,7 +42,11 @@ def propagate_filter_api_env1_by():
 
 def propagate_change_apidef(api_definition):
     """
-    Do changes to an API definition before it is applied to the next environment
+    Do changes to an API definition before it is applied to the next environment.
+
+    The following default implementation changes the environment specific identifiers
+    present in the context, endpoints, and the API name to match the target environment.
+
     :param api_definition:
     :return: the modified api definition
     """
