@@ -72,6 +72,9 @@ def propagate_change_apidef(api_definition):
     # Example 2: Rename the API context to suite environment name
     api_definition["context"] = api_definition["context"].replace(env1_identifier, env2_identifier)
 
+    # Example 2.1: Remove the environment specific identifier from the context altogether
+    # api_definition["context"] = api_definition["context"].replace(env1_identifier + "/", "")
+
     # Example 3: Rename the API name to suite environment name
     api_definition["name"] = api_definition["name"].replace(env1_identifier, env2_identifier)
 
