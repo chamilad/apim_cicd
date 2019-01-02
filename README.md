@@ -159,7 +159,14 @@ The environment variables required for each script are as follows.
 ### API Create Request Definitions
 For the [`api_create.py`](api_create.py) script, the input JSON files are contained in the [`api_definitions`](api_definitions) folder. The format for these JSON files is mentioned in the above [API Creation](#api-creation) section.
 
-The information gathered from these JSON files are then appended to the API Create Request template read from the file [`api_template.json`](api_template.json). The important fields are replaced in Python using the information read from the JSON files. The request object built using this template is then submitted to the API Create/Update REST endpoint.  
+The information gathered from these JSON files are then appended to the API Create Request template read from the file [`api_template.json`](api_template.json). The important fields are replaced in Python using the information read from the JSON files. The request object built using this template is then submitted to the API Create/Update REST endpoint.
+
+### API Propagation Extension Points
+During the API Propagation flow, there can be scenarios where the default behavior has to be modified in order to suit deployment specific details. To address this, a separate Python script is introduced called `extensions.py`. This script contains the function implementations that are called during various points of the API Propagation story. 
+
+Currently, there are two such extension points, one to address how APIs are queried for from the first environment, and another to address how API definitions should change before they are applied to the second environment. These two points are handled by functions `propagate_filter_api_env1_by()` and `propagate_change_apidef()` respectively. 
+
+To do deployment specific modifications, refer to how the default implementations are being done and modify as needed in the `extensions.py` script.   
 
 ### API Creation vs Update
 When an API is being created in a single WSO2 API Manager deployment, if it already exists by name and version, there will an error response. Therefore, before an API creation it has to be checked whether the request should actually be an update or version addition to an existing API.
