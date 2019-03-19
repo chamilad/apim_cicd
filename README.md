@@ -178,6 +178,8 @@ The traditional approach to API migration between deployments is the [WSO2 API M
 ### Setup
 To make it easy to try out the scripts, a Docker Compose setup has been provided. This [`docker-compose.yml`](docker-compose.yml) setup contains two WSO2 API Manager 2.6.0 Containers that will be mapped to ports `9443`/`8243` (`api-manager1`) and `9543`/`8343` (`api-manager2`) respectively. 
 
+> To use the Docker images used in the Docker Compose configuration, you should have access to the WSO2 Docker Registry, `docker.wso2.com`. The instructions to do this can be found at [the WSO2 Docker download page](https://wso2.com/api-management/install/docker/get-started/).
+
 To start this deployment, run [`start_test_containers.sh`](start_test_containers.sh) script. This will in essence run `docker-compose up` and output the IP addresses of the Containers. 
 
 > The Containers are networked as bridged to the default Docker bridge on the Host, and therefore will share IP addresses from the range `172.17.0.1/16`

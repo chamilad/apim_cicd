@@ -7,6 +7,10 @@ command -v docker-compose >/dev/null 2>&1 || {
     exit 1
 }
 
+# TODO: Check 
+# 1. docker login has been done
+# 2. docker image is present
+
 echo "Validating..."
 docker-compose config -q
 
