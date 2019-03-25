@@ -13,6 +13,7 @@ dcr_ep = "{0}/client-registration/v0.14/register"
 token_ep = "{0}/token"
 apis_ep = "{0}/api/am/publisher/v0.14/apis{1}"
 api_versions_ep = "{0}/api/am/publisher/v0.14/apis/copy-api"
+api_lifecycle_ep = "{0}/api/am/publisher/v0.14/apis/change-lifecycle"
 
 # Set to true for verbose logging in http calls
 verbose = os.getenv("WSO2_APIM_VERBOSE") in ["True", "true", "yes", "1"]
@@ -50,6 +51,10 @@ def do_post(url, req_body=None, req_headers=None, query_params=None, verify_ssl=
 
         return True, raw_response.status_code, raw_response.json()
 
+    # When body is empty or non-JSON
+    except ValueError:
+        print "[INFO] Response is not JSON"
+        return True, raw_response.status_code, ""
     except requests.exceptions.Timeout as e:
         print "[ERROR] HTTP_POST: Timeout. [url] %s [verify ssl] %s" % (url, verify_ssl)
         return False, None, "Timeout: " + e.message
@@ -66,17 +71,21 @@ def print_verbose_details(raw_response):
     :return:
     """
     if verbose:
-        print "REQ: Headers --------------------------------"
-        print raw_response.request.headers
-        print "REQ: Body -----------------------------------"
-        print raw_response.request.body
-        print "RES: Status code ----------------------------"
-        print raw_response.status_code
-        print "RES: Headers --------------------------------"
-        print raw_response.headers
-        print "RES: Body -----------------------------------"
-        print raw_response.json()
-        print "---------------------------------------------\n"
+        try:
+            print "REQ: Headers --------------------------------"
+            print raw_response.request.headers
+            print "REQ: Body -----------------------------------"
+            print raw_response.request.body
+            print "RES: Status code ----------------------------"
+            print raw_response.status_code
+            print "RES: Headers --------------------------------"
+            print raw_response.headers
+            print "RES: Body -----------------------------------"
+            print raw_response.json()
+            print "---------------------------------------------\n"
+        # When body is empty or non-JSON
+        except ValueError:
+            print "[DEBUG] Response is not JSON"
 
 
 def do_put(url, req_body=None, req_headers=None, query_params=None, verify_ssl=True, json_body=False):
@@ -316,14 +325,14 @@ def create_api(api_def, apimgt_url, access_token, verify_ssl):
     if not successful:
         print "[ERROR] API Create request failed. [err] %s [status-code] %s [url] %s" % (
             create_response, sc, apis_ep.format(apimgt_url, ""))
-        return False
+        return False, ""
 
     if not (200 < sc < 300):
         print "[ERROR] API Create request failed. [err] %s [status-code] %s [url] %s" % (
             create_response, sc, apis_ep.format(apimgt_url, ""))
-        return False
+        return False, ""
 
-    return True
+    return True, create_response["id"]
 
 
 def add_api_version(api_id, api_version, apimgt_url, access_token, verify_ssl=False):
@@ -342,11 +351,37 @@ def add_api_version(api_id, api_version, apimgt_url, access_token, verify_ssl=Fa
     if not successful:
         print "[ERROR] API Version Add request failed. [err] %s [status-code] %s [url] %s" % (
             create_response, sc, api_versions_ep.format(apimgt_url, ""))
-        return False
+        return False, ""
 
     if not (200 < sc < 300):
         print "[ERROR] API Version Add request failed. [err] %s [status-code] %s [url] %s" % (
             create_response, sc, api_versions_ep.format(apimgt_url, ""))
+        return False, ""
+
+    return True, create_response["id"]
+
+# Change API status
+def change_lifecycle(api_id, action, apimgt_url, access_token, verify_ssl=False):
+    req_headers = {
+        "Authorization": "Bearer " + access_token.strip()
+    }
+
+    query_params = {
+        "apiId": api_id,
+        "action": action
+    }
+
+    successful, sc, change_response = do_post(api_lifecycle_ep.format(apimgt_url), query_params=query_params,
+                                              req_headers=req_headers, verify_ssl=verify_ssl)
+
+    if not successful:
+        print "[ERROR] API status change request failed. [err] %s [status-code] %s [url] %s" % (
+            change_response, sc, api_lifecycle_ep.format(apimgt_url, ""))
+        return False
+    # Expected response is HTTP 200 OK
+    if not (200 <= sc < 300):
+        print "[ERROR] API status change error response. [err] %s [status-code] %s [url] %s" % (
+            change_response, sc, api_lifecycle_ep.format(apimgt_url, ""))
         return False
 
     return True
