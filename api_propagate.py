@@ -170,7 +170,16 @@ if __name__ == '__main__':
                 del api_definition_env1["apiSecurity"]
 
             print "Creating API %s in ENV2..." % api_definition_env1["name"]
-            api_utils.create_api(api_definition_env1, env2_apimgt_url, env2_access_token, verify_ssl)
+            successful, apiId = api_utils.create_api(api_definition_env1, env2_apimgt_url, env2_access_token, verify_ssl)
+
+            if not successful:
+                print "[ERROR] API creation failed. [server] %s. Continuing..." % env2_apimgt_url
+
+            # Get apiId from create response and then publish
+            publishSuccessful = api_utils.change_lifecycle(apiId, "Publish", env2_apimgt_url, env2_access_token, verify_ssl)
+
+            if not publishSuccessful:
+                print "[ERROR] API publish failed. [server] %s. Continuing..." % env2_apimgt_url
 
     print
     print "DONE!"
