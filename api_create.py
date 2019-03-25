@@ -105,9 +105,10 @@ if __name__ == '__main__':
     for api_request_file in glob.glob("api_definitions/*_apis.json"):
         request_json_content = json.loads(open(api_request_file).read())
         requesting_user = request_json_content["username"]
+        department = request_json_content["department"]
 
         print "Parsing create requests for [user] %s [department] %s [requests] %s..." % (
-            requesting_user, request_json_content["department"], len(request_json_content["apis"]))
+            requesting_user, department, len(request_json_content["apis"]))
 
         # For each api request, it should be checked whether an API with the same name already exists.
         # If an API with the same name exists, it should be checked if there is an existing version matching the
@@ -131,7 +132,16 @@ if __name__ == '__main__':
                 else:
                     # Add as a new version
                     print "\t%s:%s \t :Adding version..." % (api_request["name"], api_request["version"])
-                    api_utils.add_api_version(api_id, api_request["version"], apimgt_url, access_token, verify_ssl)
+                    addVersionSuccessful, apiId = api_utils.add_api_version(api_id, api_request["version"], apimgt_url, access_token, verify_ssl)
+
+                    if not addVersionSuccessful:
+                        print "[ERROR] API new version addition failed. [server] %s. Continuing..." % apimgt_url
+
+                    # Get apiId from create response and then publish
+                    publishSuccessful = api_utils.change_lifecycle(apiId, "Publish", apimgt_url, access_token, verify_ssl)
+
+                    if not publishSuccessful:
+                        print "[ERROR] API publish failed. [server] %s. Continuing..." % apimgt_url
             else:
                 # Create API
                 print "\t%s:%s \t :Creating..." % (api_request["name"], api_request["version"])
@@ -143,12 +153,15 @@ if __name__ == '__main__':
                 create_req_body["context"] = api_request["context"]
                 create_req_body["version"] = api_request["version"]
                 create_req_body["provider"] = requesting_user
-                create_req_body["tags"].append(request_json_content["department"])
+                create_req_body["tags"].append(department)
                 create_req_body["businessInformation"]["businessOwnerEmail"] = requesting_user
                 create_req_body["businessInformation"]["technicalOwnerEmail"] = requesting_user
                 create_req_body["businessInformation"]["businessOwner"] = requesting_user
                 create_req_body["businessInformation"]["technicalOwner"] = requesting_user
                 create_req_body["status"] = api_status
+                create_req_body["accessControl"] = "RESTRICTED"
+                # API creation will fail if role does not exist in userstore
+                create_req_body["accessControlRoles"].append(department)
 
                 ep_config = json.loads(create_req_body["endpointConfig"])
                 ep_config["production_endpoints"]["url"] = backend_url_prod
@@ -156,19 +169,28 @@ if __name__ == '__main__':
 
                 create_req_body["endpointConfig"] = json.dumps(ep_config)
 
-                swagger_def = json.loads(create_req_body["apiDefinition"])
-                swagger_def["info"]["title"] = api_request["name"]
-                swagger_def["info"]["description"] = api_request["description"]
-                swagger_def["info"]["version"] = api_request["version"]
-                swagger_def["info"]["contact"]["email"] = requesting_user
-                swagger_def["info"]["contact"]["name"] = requesting_user
+                if "apiDefinition" in api_request:
+                    create_req_body["apiDefinition"] = api_request["apiDefinition"]
+                else:
+                    swagger_def = json.loads(create_req_body["apiDefinition"])
+                    swagger_def["info"]["title"] = api_request["name"]
+                    swagger_def["info"]["description"] = api_request["description"]
+                    swagger_def["info"]["version"] = api_request["version"]
+                    swagger_def["info"]["contact"]["email"] = requesting_user
+                    swagger_def["info"]["contact"]["name"] = requesting_user
 
-                create_req_body["apiDefinition"] = json.dumps(swagger_def)
+                    create_req_body["apiDefinition"] = json.dumps(swagger_def)
 
-                successful = api_utils.create_api(create_req_body, apimgt_url, access_token, verify_ssl)
+                successful, apiId = api_utils.create_api(create_req_body, apimgt_url, access_token, verify_ssl)
 
                 if not successful:
                     print "[ERROR] API creation failed. [server] %s. Continuing..." % apimgt_url
+
+                # Get apiId from create response and then publish
+                publishSuccessful = api_utils.change_lifecycle(apiId, "Publish", apimgt_url, access_token, verify_ssl)
+
+                if not publishSuccessful:
+                    print "[ERROR] API publish failed. [server] %s. Continuing..." % apimgt_url
 
     print
     print "DONE!"
