@@ -1,6 +1,6 @@
 {
   "username": "user2",
-  "department": "department2",
+  "department": "admin",
   "apis": [
     {
       "name": "DroneAPI_dev1",

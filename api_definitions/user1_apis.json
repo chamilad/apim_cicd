@@ -1,6 +1,6 @@
 {
   "username": "user1",
-  "department": "department1",
+  "department": "admin",
   "apis": [
     {
       "name": "CoffeeAPI_dev1",

@@ -1,6 +1,6 @@
-{
+  {
   "username": "user3",
-  "department": "department3",
+  "department": "admin",
   "apis": [
     {
       "name": "CheeseAPI_dev1",
