@@ -38,6 +38,8 @@
     "technicalOwner": "placeholder",
     "businessOwner": "placeholder"
   },
+  "accessControl": "RESTRICTED", 
+  "accessControlRoles": [], 
   "corsConfiguration": {
     "accessControlAllowOrigins": [
       "*"
