@@ -1,0 +1,28 @@
+{
+  "username": "demo",
+  "department": "admin",
+  "apis": [
+    {
+      "name": "CHEESEAPI_dev9",
+      "description": "API for all things Cheese",
+      "context": "/api/dev9/cheese",
+      "version": "v1",
+      "apiDefinition": "{\"swagger\":\"2.0\",\"paths\":{\"/{caseId}\":{\"post\":{\"responses\":{\"200\":{\"description\":\"\"}},\"parameters\":[{\"name\":\"caseId\",\"in\":\"path\",\"allowMultiple\":false,\"required\":true,\"type\":\"string\"},{\"name\":\"Payload\",\"description\":\"Request Body\",\"required\":false,\"in\":\"body\",\"schema\":{\"type\":\"object\",\"properties\":{\"payload\":{\"type\":\"string\"}}}}],\"x-auth-type\":\"None\",\"x-throttling-tier\":\"Unlimited\",\"x-scope\":\"api_creator_scope\"}}},\"info\":{\"title\":\"EE_STAG_MEDICAID-CARD_API\",\"version\":\"v1\"}}"
+    },
+    {
+      "name": "CHEESEAPI_dev8",
+      "description": "API for all things Cheese",
+      "context": "/api/dev8/cheese",
+      "version": "v1",
+      "apiDefinition": "{\"swagger\":\"2.0\",\"paths\":{\"/{caseId}\":{\"post\":{\"responses\":{\"200\":{\"description\":\"\"}},\"parameters\":[{\"name\":\"caseId\",\"in\":\"path\",\"allowMultiple\":false,\"required\":true,\"type\":\"string\"},{\"name\":\"Payload\",\"description\":\"Request Body\",\"required\":false,\"in\":\"body\",\"schema\":{\"type\":\"object\",\"properties\":{\"payload\":{\"type\":\"string\"}}}}],\"x-auth-type\":\"None\",\"x-throttling-tier\":\"Unlimited\"}}},\"info\":{\"title\":\"EE_STAG_MEDICAID-CARD_API\",\"version\":\"v1\"}}"
+    },
+    {
+      "name": "CHEESEAPI_dev7",
+      "description": "API for all things Cheese",
+      "context": "/api/dev7/cheese",
+      "version": "v1",
+      "apiDefinition": "{\"swagger\":\"2.0\",\"paths\":{\"/{caseId}\":{\"post\":{\"responses\":{\"200\":{\"description\":\"\"}},\"parameters\":[{\"name\":\"caseId\",\"in\":\"path\",\"allowMultiple\":false,\"required\":true,\"type\":\"string\"},{\"name\":\"Payload\",\"description\":\"Request Body\",\"required\":false,\"in\":\"body\",\"schema\":{\"type\":\"object\",\"properties\":{\"payload\":{\"type\":\"string\"}}}}],\"x-auth-type\":\"None\",\"x-throttling-tier\":\"Unlimited\"}}},\"info\":{\"title\":\"EE_STAG_MEDICAID-CARD_API\",\"version\":\"v1\"}}"
+    }
+  ]
+}
+
