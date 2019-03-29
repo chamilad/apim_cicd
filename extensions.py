@@ -15,6 +15,8 @@ could actually break the core logic. Therefore, carefully study the sample
 implementations before modifying the behavior. 
 """
 
+# env var: WSO2_APIM_API_PREFIX
+api_prefix = os.getenv("WSO2_APIM_API_PREFIX", None)
 # env var: WSO2_APIM_ENV1_ID
 env1_identifier = os.getenv("WSO2_APIM_ENV1_ID", None)
 # env var: WSO2_APIM_ENV2_ID
@@ -34,7 +36,7 @@ def propagate_filter_api_env1_by():
     """
 
     filter_query_params = {
-        "query": "context:*/" + env1_identifier + "/*"
+        "query": "context:*/" + api_prefix + "/" + env1_identifier + "/*"
     }
 
     return filter_query_params
@@ -53,6 +55,10 @@ def propagate_change_apidef(api_definition):
 
     # Any changes to the api definition that should be there in the new environment should be done here
     # before the create/update call is done. Refer the following examples.
+    if api_prefix is None:
+        print "[ERROR] API Prefix is empty. Please set environment variable WSO2_APIM_API_PREFIX"
+        exit(2)
+
     if env1_identifier is None:
         print "[ERROR] ENV1 Identifier is empty. Please set environment variable WSO2_APIM_ENV1_ID"
         exit(2)
@@ -61,21 +67,28 @@ def propagate_change_apidef(api_definition):
         print "[ERROR] ENV2 Identifier is empty. Please set environment variable WSO2_APIM_ENV2_ID"
         exit(2)
 
+    env1_url_replace_string = env1_identifier + "-" + api_prefix
+    env2_url_replace_string = env2_identifier + "-" + api_prefix
+    env1_context_replace_string = api_prefix + "/" + env1_identifier
+    env2_context_replace_string = api_prefix + "/" + env2_identifier
+    env1_name_replace_string = (api_prefix + "_" + env1_identifier).upper()
+    env2_name_replace_string = (api_prefix + "_" + env2_identifier).upper()
+
     # Example 1: Replace the backend URL from dev1 to dev2
     ep_config = json.loads(api_definition["endpointConfig"])
-    ep_config["production_endpoints"]["url"] = ep_config["production_endpoints"]["url"].replace(env1_identifier,
-                                                                                                env2_identifier)
-    ep_config["sandbox_endpoints"]["url"] = ep_config["sandbox_endpoints"]["url"].replace(env1_identifier,
-                                                                                          env2_identifier)
+    ep_config["production_endpoints"]["url"] = ep_config["production_endpoints"]["url"].replace(env1_url_replace_string,
+                                                                                                env2_url_replace_string)
+    ep_config["sandbox_endpoints"]["url"] = ep_config["sandbox_endpoints"]["url"].replace(env1_url_replace_string,
+                                                                                          env2_url_replace_string)
     api_definition["endpointConfig"] = json.dumps(ep_config)
 
     # Example 2: Rename the API context to suite environment name
-    api_definition["context"] = api_definition["context"].replace(env1_identifier, env2_identifier)
+    api_definition["context"] = api_definition["context"].replace(env1_context_replace_string, env2_context_replace_string)
 
     # Example 2.1: Remove the environment specific identifier from the context altogether
     # api_definition["context"] = api_definition["context"].replace(env1_identifier + "/", "")
 
     # Example 3: Rename the API name to suite environment name
-    api_definition["name"] = api_definition["name"].replace(env1_identifier, env2_identifier)
+    api_definition["name"] = api_definition["name"].replace(env1_name_replace_string, env2_name_replace_string)
 
     return api_definition
