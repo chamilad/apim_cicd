@@ -14,8 +14,8 @@ export WSO2_APIM_APIMGT_OWNER="admin"
 
 export WSO2_APIM_VERIFY_SSL="False"
 
-export WSO2_APIM_BE_PROD="http://mybackendserver.dev1.client.test/apibase"
-export WSO2_APIM_BE_SNDBX="http://mybackendserver.dev1.client.test/apibase"
+export WSO2_APIM_BE_PROD="http://dev1-cjams-app.mdcloud.local/api"
+export WSO2_APIM_BE_SNDBX="http://dev1-cjams-app.mdcloud.local/api"
 
 export WSO2_APIM_API_STATUS="CREATED"
 
