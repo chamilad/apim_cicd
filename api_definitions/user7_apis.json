@@ -1,0 +1,28 @@
+{
+  "username": "user7",
+  "department": "admin",
+  "apis": [
+    {
+      "name": "CJAMS_DEV1_ACL_API",
+      "description": "CJAMS_ACL_API",
+      "context": "/api/cjams/dev1/ACL",
+      "version": "v1",
+      "apiDefinition": "{\"swagger\":\"2.0\",\"paths\":{\"/{caseId}\":{\"post\":{\"responses\":{\"200\":{\"description\":\"\"}},\"parameters\":[{\"name\":\"caseId\",\"in\":\"path\",\"allowMultiple\":false,\"required\":true,\"type\":\"string\"},{\"name\":\"Payload\",\"description\":\"Request Body\",\"required\":false,\"in\":\"body\",\"schema\":{\"type\":\"object\",\"properties\":{\"payload\":{\"type\":\"string\"}}}}],\"x-auth-type\":\"None\",\"x-throttling-tier\":\"Unlimited\",\"x-scope\":\"api_creator_scope\"}}},\"info\":{\"title\":\"CJAMS_ACL_API\",\"version\":\"v1\"}}"
+    },
+    {
+      "name": "CJAMS_DEV1_ACTIVITY_API",
+      "description": "CJAMS_ACTIVITY_API",
+      "context": "/api/cjams/dev1/Activity",
+      "version": "v1",
+      "apiDefinition": "{\"swagger\":\"2.0\",\"paths\":{\"/{caseId}\":{\"post\":{\"responses\":{\"200\":{\"description\":\"\"}},\"parameters\":[{\"name\":\"caseId\",\"in\":\"path\",\"allowMultiple\":false,\"required\":true,\"type\":\"string\"},{\"name\":\"Payload\",\"description\":\"Request Body\",\"required\":false,\"in\":\"body\",\"schema\":{\"type\":\"object\",\"properties\":{\"payload\":{\"type\":\"string\"}}}}],\"x-auth-type\":\"None\",\"x-throttling-tier\":\"Unlimited\"}}},\"info\":{\"title\":\"CJAMS_ACTIVITY_API\",\"version\":\"v1\"}}"
+    },
+    {
+      "name": "CJAMS_DEV1_ACTIVITYGOAL_API",
+      "description": "CJAMS_ACTIVITYGOAL_API",
+      "context": "/api/cjams/dev1/Activitygoal",
+      "version": "v1",
+      "apiDefinition": "{\"swagger\":\"2.0\",\"paths\":{\"/{caseId}\":{\"post\":{\"responses\":{\"200\":{\"description\":\"\"}},\"parameters\":[{\"name\":\"caseId\",\"in\":\"path\",\"allowMultiple\":false,\"required\":true,\"type\":\"string\"},{\"name\":\"Payload\",\"description\":\"Request Body\",\"required\":false,\"in\":\"body\",\"schema\":{\"type\":\"object\",\"properties\":{\"payload\":{\"type\":\"string\"}}}}],\"x-auth-type\":\"None\",\"x-throttling-tier\":\"Unlimited\"}}},\"info\":{\"title\":\"CJAMS_ACTIVITYGOAL_API\",\"version\":\"v1\"}}"
+    }
+  ]
+}
+

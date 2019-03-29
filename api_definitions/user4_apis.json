@@ -1,0 +1,12 @@
+{
+  "username": "user4",
+  "department": "admin",
+  "apis": [
+    {
+      "name": "CJAMS_DEV1-ROLE_API",
+      "description": "ROLE_API",
+      "context": "/api/cjams/dev1/role",
+      "version": "v1"
+    }
+  ]
+}

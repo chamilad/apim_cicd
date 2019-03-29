@@ -1,0 +1,12 @@
+{
+  "username": "user6",
+  "department": "admin",
+  "apis": [
+    {
+      "name": "CJAMS_DEV1_ACCESSTOKEN_API",
+      "description": "ACCESSTOKEN_API",
+      "context": "/api/cjams/dev1/AccessToken",
+      "version": "v1"
+    }
+  ]
+}
