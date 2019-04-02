@@ -40,6 +40,9 @@ env2_apimgt_pwd = os.getenv("WSO2_APIM_ENV2_APIMGT_PASSWD", None)
 # Owner to be specified in the DCR
 env2_api_owner = os.getenv("WSO2_APIM_ENV2_APIMGT_OWNER", None)
 
+# Access control role for env2
+env2_role = os.getenv("WSO2_APIM_ENV2_ROLE", None)
+
 # ignore TLS errors
 # env var: WSO2_APIM_VERIFY_SSL
 verify_ssl = os.getenv("WSO2_APIM_VERIFY_SSL") in ["True", "true", "yes", "1"]
@@ -137,6 +140,9 @@ if __name__ == '__main__':
 
         # delete the API ID from the create request
         del api_definition_env1["id"]
+
+        # Set access control role for env2
+        api_definition_env1["accessControlRoles"] = [env2_role]
 
         # Any changes to the api definition that should be there in the new environment should be done here
         # before the create/update call is done. Refer the following examples.

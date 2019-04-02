@@ -21,6 +21,7 @@ export WSO2_APIM_ENV2_APIMGT_PASSWD="admin"
 # WSO2_APIM_ENV2_ID should be lowercase
 export WSO2_APIM_ENV2_ID="dev2"
 export WSO2_APIM_ENV2_APIMGT_OWNER="admin"
+export WSO2_APIM_ENV2_ROLE="Internal/subscriber"
 
 # WSO2_APIM_API_PREFIX should be lowercase
 export WSO2_APIM_API_PREFIX="cjams"
