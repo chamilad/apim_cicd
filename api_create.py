@@ -162,6 +162,7 @@ if __name__ == '__main__':
                 create_req_body["accessControl"] = "RESTRICTED"
                 # API creation will fail if role does not exist in userstore
                 create_req_body["accessControlRoles"].append(department)
+                create_req_body["visibleRoles"].append(department)
 
                 ep_config = json.loads(create_req_body["endpointConfig"])
                 ep_config["production_endpoints"]["url"] = backend_url_prod

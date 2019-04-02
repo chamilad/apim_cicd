@@ -25,7 +25,7 @@
     "production": 1000
   },
   "thumbnailUri": null,
-  "visibility": "PUBLIC",
+  "visibility": "RESTRICTED",
   "visibleRoles": [],
   "visibleTenants": [],
   "endpointConfig": "{\"production_endpoints\":{\"url\":\"prod_be_url_placeholder\",\"config\":null},\"sandbox_endpoints\":{\"url\":\"sandbox_be_url_placeholder\",\"config\":null},\"endpoint_type\":\"http\"}",

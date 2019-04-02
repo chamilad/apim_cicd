@@ -143,6 +143,8 @@ if __name__ == '__main__':
 
         # Set access control role for env2
         api_definition_env1["accessControlRoles"] = [env2_role]
+        # Set visible role for env2
+        api_definition_env1["visibleRoles"] = [env2_role]
 
         # Any changes to the api definition that should be there in the new environment should be done here
         # before the create/update call is done. Refer the following examples.
