@@ -43,6 +43,9 @@ env2_api_owner = os.getenv("WSO2_APIM_ENV2_APIMGT_OWNER", None)
 # Access control role for env2
 env2_role = os.getenv("WSO2_APIM_ENV2_ROLE", None)
 
+# Published/ gateway environments for env2
+env2_gateway_envs = os.getenv("WSO2_APIM_ENV2_GATEWAY_ENVIRONMENTS", None)
+
 # ignore TLS errors
 # env var: WSO2_APIM_VERIFY_SSL
 verify_ssl = os.getenv("WSO2_APIM_VERIFY_SSL") in ["True", "true", "yes", "1"]
@@ -91,6 +94,13 @@ if env2_apimgt_pwd is None:
 if env2_api_owner is None:
     print "[ERROR] ENV2 API Owner is empty. Please set environment variable WSO2_APIM_ENV2_APIMGT_OWNER"
     exit(2)
+
+if env2_role is None:
+    print "[ERROR] ENV2 access control role is empty. Please set environment variable WSO2_APIM_ENV2_ROLE"
+    exit(2)
+
+if env2_gateway_envs is None:
+    print "[WARN] ENV2 gateway environments are empty. ENV1 gateway environments will be used instead. Please set environment variable WSO2_APIM_ENV2_GATEWAY_ENVIRONMENTS"
 
 if verify_ssl is None:
     print "[ERROR] Verify_SSL flag is empty. Please set environment variable WSO2_APIM_VERIFY_SSL"
@@ -145,6 +155,12 @@ if __name__ == '__main__':
         api_definition_env1["accessControlRoles"] = [env2_role]
         # Set visible role for env2
         api_definition_env1["visibleRoles"] = [env2_role]
+        # Set tags for env2
+        api_definition_env1["tags"] = [env2_role]
+
+        # Set published/ gateway environments for env2
+        if env2_gateway_envs is not None:
+            api_definition_env1["gatewayEnvironments"] = env2_gateway_envs
 
         # Any changes to the api definition that should be there in the new environment should be done here
         # before the create/update call is done. Refer the following examples.
