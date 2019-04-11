@@ -74,7 +74,7 @@ def propagate_change_apidef(api_definition):
     env1_name_replace_string = (api_prefix + "_" + env1_identifier).upper()
     env2_name_replace_string = (api_prefix + "_" + env2_identifier).upper()
 
-    # Example 1: Replace the backend URL from dev1 to dev2
+    #Example: Replace the backend URL from http://dev1-cjams-app.mdcloud.local/api to http://dev2-cjams-app.mdcloud.local/api
     ep_config = json.loads(api_definition["endpointConfig"])
     ep_config["production_endpoints"]["url"] = ep_config["production_endpoints"]["url"].replace(env1_url_replace_string,
                                                                                                 env2_url_replace_string)
@@ -82,13 +82,10 @@ def propagate_change_apidef(api_definition):
                                                                                           env2_url_replace_string)
     api_definition["endpointConfig"] = json.dumps(ep_config)
 
-    # Example 2: Rename the API context to suite environment name
+    #Example: Rename the API context from /api/cjams/dev1/accessTkn/v1 to /api/cjams/dev2/accessTkn/v1
     api_definition["context"] = api_definition["context"].replace(env1_context_replace_string, env2_context_replace_string)
 
-    # Example 2.1: Remove the environment specific identifier from the context altogether
-    # api_definition["context"] = api_definition["context"].replace(env1_identifier + "/", "")
-
-    # Example 3: Rename the API name to suite environment name
+    #Example: Rename the API name from CJAMS_DEV1_ACCESSTKN_API - v1 to CJAMS_DEV2_ACCESSTKN_API - v1
     api_definition["name"] = api_definition["name"].replace(env1_name_replace_string, env2_name_replace_string)
 
     return api_definition
