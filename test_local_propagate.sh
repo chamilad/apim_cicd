@@ -22,6 +22,7 @@ export WSO2_APIM_ENV2_APIMGT_PASSWD="admin"
 export WSO2_APIM_ENV2_ID="dev11"
 export WSO2_APIM_ENV2_APIMGT_OWNER="admin"
 export WSO2_APIM_ENV2_ROLE="Internal/subscriber"
+export WSO2_APIM_ENV2_GATEWAY_ENVIRONMENTS="STAG - External Gateway, STAG - Internal Gateway"
 
 # WSO2_APIM_API_PREFIX should be lowercase
 export WSO2_APIM_API_PREFIX="cjams"
