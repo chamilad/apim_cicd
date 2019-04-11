@@ -29,7 +29,7 @@
   "visibleRoles": [],
   "visibleTenants": [],
   "endpointConfig": "{\"production_endpoints\":{\"url\":\"prod_be_url_placeholder\",\"config\":null},\"sandbox_endpoints\":{\"url\":\"sandbox_be_url_placeholder\",\"config\":null},\"endpoint_type\":\"http\"}",
-  "gatewayEnvironments": "Production and Sandbox",
+  "gatewayEnvironments": "DEV - External Gateway, DEV - Internal Gateway",
   "subscriptionAvailability": null,
   "subscriptionAvailableTenants": [],
   "businessInformation": {
