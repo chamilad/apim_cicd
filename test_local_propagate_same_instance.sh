@@ -27,6 +27,9 @@ export WSO2_APIM_ENV2_GATEWAY_ENVIRONMENTS="STAG - External Gateway, STAG - Inte
 # WSO2_APIM_API_PREFIX should be lowercase
 export WSO2_APIM_API_PREFIX="cjams"
 
+# Maximum size of resource array to return
+export WSO2_APIM_RETURN_LIMIT=10000
+
 export WSO2_APIM_VERIFY_SSL="False"
 
 export WSO2_APIM_VERBOSE="False"
