@@ -1,0 +1,706 @@
+{
+  "username": "user8",
+  "department": "admin",
+  "apis": [
+
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_1",
+      "description": "ACCESSLIST_API_1",
+      "context": "/api/cjams/dev1/accesslist1",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_2",
+      "description": "ACCESSLIST_API_2",
+      "context": "/api/cjams/dev1/accesslist2",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_3",
+      "description": "ACCESSLIST_API_3",
+      "context": "/api/cjams/dev1/accesslist3",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_4",
+      "description": "ACCESSLIST_API_4",
+      "context": "/api/cjams/dev1/accesslist4",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_5",
+      "description": "ACCESSLIST_API_5",
+      "context": "/api/cjams/dev1/accesslist5",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_6",
+      "description": "ACCESSLIST_API_6",
+      "context": "/api/cjams/dev1/accesslist6",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_7",
+      "description": "ACCESSLIST_API_7",
+      "context": "/api/cjams/dev1/accesslist7",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_8",
+      "description": "ACCESSLIST_API_8",
+      "context": "/api/cjams/dev1/accesslist8",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_9",
+      "description": "ACCESSLIST_API_9",
+      "context": "/api/cjams/dev1/accesslist9",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_10",
+      "description": "ACCESSLIST_API_10",
+      "context": "/api/cjams/dev1/accesslist10",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_11",
+      "description": "ACCESSLIST_API_11",
+      "context": "/api/cjams/dev1/accesslist11",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_12",
+      "description": "ACCESSLIST_API_12",
+      "context": "/api/cjams/dev1/accesslist12",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_13",
+      "description": "ACCESSLIST_API_13",
+      "context": "/api/cjams/dev1/accesslist13",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_14",
+      "description": "ACCESSLIST_API_14",
+      "context": "/api/cjams/dev1/accesslist14",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_15",
+      "description": "ACCESSLIST_API_15",
+      "context": "/api/cjams/dev1/accesslist15",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_16",
+      "description": "ACCESSLIST_API_16",
+      "context": "/api/cjams/dev1/accesslist16",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_17",
+      "description": "ACCESSLIST_API_17",
+      "context": "/api/cjams/dev1/accesslist17",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_18",
+      "description": "ACCESSLIST_API_18",
+      "context": "/api/cjams/dev1/accesslist18",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_19",
+      "description": "ACCESSLIST_API_19",
+      "context": "/api/cjams/dev1/accesslist19",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_20",
+      "description": "ACCESSLIST_API_20",
+      "context": "/api/cjams/dev1/accesslist20",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_21",
+      "description": "ACCESSLIST_API_21",
+      "context": "/api/cjams/dev1/accesslist21",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_22",
+      "description": "ACCESSLIST_API_22",
+      "context": "/api/cjams/dev1/accesslist22",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_23",
+      "description": "ACCESSLIST_API_23",
+      "context": "/api/cjams/dev1/accesslist23",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_24",
+      "description": "ACCESSLIST_API_24",
+      "context": "/api/cjams/dev1/accesslist24",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_25",
+      "description": "ACCESSLIST_API_25",
+      "context": "/api/cjams/dev1/accesslist25",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_26",
+      "description": "ACCESSLIST_API_26",
+      "context": "/api/cjams/dev1/accesslist26",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_27",
+      "description": "ACCESSLIST_API_27",
+      "context": "/api/cjams/dev1/accesslist27",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_28",
+      "description": "ACCESSLIST_API_28",
+      "context": "/api/cjams/dev1/accesslist28",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_29",
+      "description": "ACCESSLIST_API_29",
+      "context": "/api/cjams/dev1/accesslist29",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_30",
+      "description": "ACCESSLIST_API_30",
+      "context": "/api/cjams/dev1/accesslist30",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_31",
+      "description": "ACCESSLIST_API_31",
+      "context": "/api/cjams/dev1/accesslist31",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_32",
+      "description": "ACCESSLIST_API_32",
+      "context": "/api/cjams/dev1/accesslist32",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_33",
+      "description": "ACCESSLIST_API_33",
+      "context": "/api/cjams/dev1/accesslist33",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_34",
+      "description": "ACCESSLIST_API_34",
+      "context": "/api/cjams/dev1/accesslist34",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_35",
+      "description": "ACCESSLIST_API_35",
+      "context": "/api/cjams/dev1/accesslist35",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_36",
+      "description": "ACCESSLIST_API_36",
+      "context": "/api/cjams/dev1/accesslist36",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_37",
+      "description": "ACCESSLIST_API_37",
+      "context": "/api/cjams/dev1/accesslist37",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_38",
+      "description": "ACCESSLIST_API_38",
+      "context": "/api/cjams/dev1/accesslist38",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_39",
+      "description": "ACCESSLIST_API_39",
+      "context": "/api/cjams/dev1/accesslist39",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_40",
+      "description": "ACCESSLIST_API_40",
+      "context": "/api/cjams/dev1/accesslist40",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_41",
+      "description": "ACCESSLIST_API_41",
+      "context": "/api/cjams/dev1/accesslist41",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_42",
+      "description": "ACCESSLIST_API_42",
+      "context": "/api/cjams/dev1/accesslist42",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_43",
+      "description": "ACCESSLIST_API_43",
+      "context": "/api/cjams/dev1/accesslist43",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_44",
+      "description": "ACCESSLIST_API_44",
+      "context": "/api/cjams/dev1/accesslist44",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_45",
+      "description": "ACCESSLIST_API_45",
+      "context": "/api/cjams/dev1/accesslist45",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_46",
+      "description": "ACCESSLIST_API_46",
+      "context": "/api/cjams/dev1/accesslist46",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_47",
+      "description": "ACCESSLIST_API_47",
+      "context": "/api/cjams/dev1/accesslist47",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_48",
+      "description": "ACCESSLIST_API_48",
+      "context": "/api/cjams/dev1/accesslist48",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_49",
+      "description": "ACCESSLIST_API_49",
+      "context": "/api/cjams/dev1/accesslist49",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_50",
+      "description": "ACCESSLIST_API_50",
+      "context": "/api/cjams/dev1/accesslist50",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_51",
+      "description": "ACCESSLIST_API_51",
+      "context": "/api/cjams/dev1/accesslist51",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_52",
+      "description": "ACCESSLIST_API_52",
+      "context": "/api/cjams/dev1/accesslist52",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_53",
+      "description": "ACCESSLIST_API_53",
+      "context": "/api/cjams/dev1/accesslist53",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_54",
+      "description": "ACCESSLIST_API_54",
+      "context": "/api/cjams/dev1/accesslist54",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_55",
+      "description": "ACCESSLIST_API_55",
+      "context": "/api/cjams/dev1/accesslist55",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_56",
+      "description": "ACCESSLIST_API_56",
+      "context": "/api/cjams/dev1/accesslist56",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_57",
+      "description": "ACCESSLIST_API_57",
+      "context": "/api/cjams/dev1/accesslist57",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_58",
+      "description": "ACCESSLIST_API_58",
+      "context": "/api/cjams/dev1/accesslist58",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_59",
+      "description": "ACCESSLIST_API_59",
+      "context": "/api/cjams/dev1/accesslist59",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_60",
+      "description": "ACCESSLIST_API_60",
+      "context": "/api/cjams/dev1/accesslist60",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_61",
+      "description": "ACCESSLIST_API_61",
+      "context": "/api/cjams/dev1/accesslist61",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_62",
+      "description": "ACCESSLIST_API_62",
+      "context": "/api/cjams/dev1/accesslist62",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_63",
+      "description": "ACCESSLIST_API_63",
+      "context": "/api/cjams/dev1/accesslist63",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_64",
+      "description": "ACCESSLIST_API_64",
+      "context": "/api/cjams/dev1/accesslist64",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_65",
+      "description": "ACCESSLIST_API_65",
+      "context": "/api/cjams/dev1/accesslist65",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_66",
+      "description": "ACCESSLIST_API_66",
+      "context": "/api/cjams/dev1/accesslist66",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_67",
+      "description": "ACCESSLIST_API_67",
+      "context": "/api/cjams/dev1/accesslist67",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_68",
+      "description": "ACCESSLIST_API_68",
+      "context": "/api/cjams/dev1/accesslist68",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_69",
+      "description": "ACCESSLIST_API_69",
+      "context": "/api/cjams/dev1/accesslist69",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_70",
+      "description": "ACCESSLIST_API_70",
+      "context": "/api/cjams/dev1/accesslist70",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_71",
+      "description": "ACCESSLIST_API_71",
+      "context": "/api/cjams/dev1/accesslist71",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_72",
+      "description": "ACCESSLIST_API_72",
+      "context": "/api/cjams/dev1/accesslist72",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_73",
+      "description": "ACCESSLIST_API_73",
+      "context": "/api/cjams/dev1/accesslist73",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_74",
+      "description": "ACCESSLIST_API_74",
+      "context": "/api/cjams/dev1/accesslist74",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_75",
+      "description": "ACCESSLIST_API_75",
+      "context": "/api/cjams/dev1/accesslist75",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_76",
+      "description": "ACCESSLIST_API_76",
+      "context": "/api/cjams/dev1/accesslist76",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_77",
+      "description": "ACCESSLIST_API_77",
+      "context": "/api/cjams/dev1/accesslist77",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_78",
+      "description": "ACCESSLIST_API_78",
+      "context": "/api/cjams/dev1/accesslist78",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_79",
+      "description": "ACCESSLIST_API_79",
+      "context": "/api/cjams/dev1/accesslist79",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_80",
+      "description": "ACCESSLIST_API_80",
+      "context": "/api/cjams/dev1/accesslist80",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_81",
+      "description": "ACCESSLIST_API_81",
+      "context": "/api/cjams/dev1/accesslist81",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_82",
+      "description": "ACCESSLIST_API_82",
+      "context": "/api/cjams/dev1/accesslist82",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_83",
+      "description": "ACCESSLIST_API_83",
+      "context": "/api/cjams/dev1/accesslist83",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_84",
+      "description": "ACCESSLIST_API_84",
+      "context": "/api/cjams/dev1/accesslist84",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_85",
+      "description": "ACCESSLIST_API_85",
+      "context": "/api/cjams/dev1/accesslist85",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_86",
+      "description": "ACCESSLIST_API_86",
+      "context": "/api/cjams/dev1/accesslist86",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_87",
+      "description": "ACCESSLIST_API_87",
+      "context": "/api/cjams/dev1/accesslist87",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_88",
+      "description": "ACCESSLIST_API_88",
+      "context": "/api/cjams/dev1/accesslist88",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_89",
+      "description": "ACCESSLIST_API_89",
+      "context": "/api/cjams/dev1/accesslist89",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_90",
+      "description": "ACCESSLIST_API_90",
+      "context": "/api/cjams/dev1/accesslist90",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_91",
+      "description": "ACCESSLIST_API_91",
+      "context": "/api/cjams/dev1/accesslist91",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_92",
+      "description": "ACCESSLIST_API_92",
+      "context": "/api/cjams/dev1/accesslist92",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_93",
+      "description": "ACCESSLIST_API_93",
+      "context": "/api/cjams/dev1/accesslist93",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_94",
+      "description": "ACCESSLIST_API_94",
+      "context": "/api/cjams/dev1/accesslist94",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_95",
+      "description": "ACCESSLIST_API_95",
+      "context": "/api/cjams/dev1/accesslist95",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_96",
+      "description": "ACCESSLIST_API_96",
+      "context": "/api/cjams/dev1/accesslist96",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_97",
+      "description": "ACCESSLIST_API_97",
+      "context": "/api/cjams/dev1/accesslist97",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_98",
+      "description": "ACCESSLIST_API_98",
+      "context": "/api/cjams/dev1/accesslist98",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_99",
+      "description": "ACCESSLIST_API_99",
+      "context": "/api/cjams/dev1/accesslist99",
+      "version": "v1"
+    }
+,
+    {
+      "name": "CJAMS_DEV1_ACCESSLIST_API_100",
+      "description": "ACCESSLIST_API_100",
+      "context": "/api/cjams/dev1/accesslist100",
+      "version": "v1"
+    }
+  ]
+}
