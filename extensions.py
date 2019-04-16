@@ -21,6 +21,8 @@ api_prefix = os.getenv("WSO2_APIM_API_PREFIX", None)
 env1_identifier = os.getenv("WSO2_APIM_ENV1_ID", None)
 # env var: WSO2_APIM_ENV2_ID
 env2_identifier = os.getenv("WSO2_APIM_ENV2_ID", None)
+# Maximum size of resource array to return. env var: WSO2_APIM_RETURN_LIMIT
+return_limit = os.getenv("WSO2_APIM_RETURN_LIMIT", None)
 
 
 def propagate_filter_api_env1_by():
@@ -36,7 +38,10 @@ def propagate_filter_api_env1_by():
     """
 
     filter_query_params = {
-        "query": "context:*/" + api_prefix + "/" + env1_identifier + "/*"
+        "query": "context:*/" + api_prefix + "/" + env1_identifier + "/*",
+
+        # Append response limit query parameter
+        "limit": return_limit
     }
 
     return filter_query_params
